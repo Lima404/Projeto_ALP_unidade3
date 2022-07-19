@@ -1,43 +1,88 @@
+import pickle
 import os
+from validacoes import *
 from time import sleep
 
-agenda = {
-            "2022111111" : ["Flavius", "25"],
-             "2022111222": ["Janderson", '18'],
-            "2022111333" : ["Xiko", '20'],
-            
-          }
+
 
 
 ########### USUARIO ###########
 
-    
+def savearquivo(): # Função para listar os itens dos arquivos
+    try:
+        listclient = open("listaclient.dat", "rb")
+        agenda1 = pickle.load(listclient)
+        listclient.close()
+    except:
+        listclient = open("listaclient.dat", "wb")
+        listclient.close()
 
+    return agenda1
+
+
+def savedados(agenda1): # Função para gravar
+    listclient = open("listaclient.dat", "wb")
+    pickle.dump(agenda1, listclient)
+    listclient.close()
+    
+agenda1 = savearquivo()
 
 def cadastrar_usuario():
   os.system ('cls')
   print ("você escolheu cadastrar um novo usuario, vamos lá? \n")
-  matr = input('Informe sua matricula: ')
-  nome = input('Informa seu nome: ')
-  idade = input('Informe sua idade: ')
-  agenda[matr] = [nome, idade]
-  print('Usuário cadastrado com sucesso!')
-  print(agenda)
-  sleep(5)
+
+  while True:
+      nome = input('Informe seu nome: ')
+      if validstring(nome):
+        break
+      else:
+        print("nome invalido! ")
+
+  while True:
+    idade = input('Informe seu idade: ')
+    if validnum(idade):
+      break
+    else:
+      print("idade invalida! ")
+
+  while True:
+      pet = input('Informe o tipo do seu pet: (Ex. Cachorro / Gato) ')
+      if validstring(pet):
+        break
+      else:
+        print("nome invalido! ")
+
+  petdesc = input('Me fale um pouco do seu pet ')
+
+  while True:
+    cpf = input('Informe seu cpf: ')
+    if cpf not in agenda1:
+      agenda1[cpf] = [nome, idade, pet, petdesc]
+      print('Usuário cadastrado com sucesso!')
+      print(agenda1)
+      savedados(agenda1)
+      break
+    else:
+      print("Usuario já cadastrado! ")
+  input ('Tecle enter para continuar')
+  
+  
+
+
   
 
 
 def procurar_usuario():
-  nome = input('Qual nome você quer localizar: ')
+  cpf = input('Qual o cpf você quer localizar: ')
   while True:
-    if nome in agenda:
-      print("Encontramos!")
-      print(agenda)
+    if cpf not in agenda1:
+      print ('usuario não encontrado')
       break
-    
     else:
-      print('Usuário não encontrado!')
-      sleep(5)
+      print (agenda1[cpf])
+      break
+  input("tecle enter para continuar")
+
 
 
 
@@ -48,19 +93,29 @@ def procurar_usuario():
 
 def alterar_usuario():
   while True:
-    alterar_dados = input("Qual o usuario que você gostaria de atualizar: dado pela matricula: ")
-    if alterar_dados in agenda:
+    alterar_dados = input("Qual o usuario que você gostaria de atualizar: (localize pelo CPF:) ")
+    if alterar_dados in agenda1:
       
       novo_nome = input('Qual o novo nome: ')
-      agenda[alterar_dados][0] = novo_nome
+      agenda1[alterar_dados][0] = novo_nome
+
       nova_idade = input("Qual a nova idade: ")
-      agenda[alterar_dados][1] = nova_idade
+      agenda1[alterar_dados][1] = nova_idade
+
+      tipo_pet = input("Qual o tipo do pet: ")
+      agenda1[alterar_dados][2] = tipo_pet
+
+      desc_pet = input("Adcione uma nova descrição para o pet: ")
+      agenda1[alterar_dados][3] = desc_pet
       print("Usuario atualizado com sucesso")
+      savedados(agenda1)
+      break
 
     else:
       print('Usuario não encontrado')
+      break
     
-    input("\n APERTE ENTER PARA VOLTAR AO MENU DO USUARIO")
+  input("\n APERTE ENTER PARA VOLTAR AO MENU DO USUARIO")
   
 
 
@@ -68,21 +123,23 @@ def alterar_usuario():
 
 
 def apagar_usuario():
-  del_usuario = str(input("Qual a matricula do usuario que vc que deletar: "))
-  if del_usuario in agenda:
-    del agenda[del_usuario]
-    print(f'O usuario {del_usuario} foi deletado')
-  else:
-    print("Usuario não encontrado: ")
+  while True:
+    del_usuario = input("Qual o cpf do usuario que vc que deletar: ")
+    if del_usuario in agenda1:
+      del agenda1[del_usuario]
+      print(f'O usuario {del_usuario} foi deletado')
+      savedados(agenda1)
+      break
+    else:
+      print("Usuario não encontrado: ")
   input("\n APERTE ENTER PARA VOLTAR AO MENU DO USUARIO")
 
+
+
+
 def lista_usuario():
-  for mart in agenda :
-    print()
-    print ("Nome: \t",agenda[mart][0])
-    print("Idade: \t",agenda[mart][1]) 
-    print()
-  input("\n APERTE ENTER PARA VOLTAR AO MENU DO USUARIO")
+    print(agenda1, end='')
+    input("\n APERTE ENTER PARA VOLTAR AO MENU DO USUARIO")
   
 ################# mudulo usuario ##############
 def menu1():

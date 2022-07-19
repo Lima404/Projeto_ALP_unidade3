@@ -1,4 +1,3 @@
-
 import os
 from time import sleep
 from usuario import menu1
@@ -19,11 +18,11 @@ while chip != '0':
   print('#'*35)
   print()
 
-  print ('DADOS DE USUARIO [1]')
-  print ('ESTOQUE DE PRODUTOS [2]')
-  print ('SERVIÇOS [3]')
-  print ('DADOS SOBRE O PROJETO [4]')
-  print ('Sair do Menu [0]')
+  print ('1. DADOS DE USUARIO [1]')
+  print ('2. ESTOQUE DE PRODUTOS [2]')
+  print ('3. SERVIÇOS [3]')
+  print ('4. DADOS SOBRE O PROJETO [4]')
+  print ('0. Sair do Menu [0]')
 
   chip = input("Por onde você quer navegar?  ")
 
