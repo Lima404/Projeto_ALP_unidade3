@@ -67,8 +67,6 @@ def cadastrar_usuario():
   input ('Tecle enter para continuar')
   
   
-
-
   
 
 
@@ -82,10 +80,6 @@ def procurar_usuario():
       print (agenda1[cpf])
       break
   input("tecle enter para continuar")
-
-
-
-
 
 
 
@@ -119,9 +113,6 @@ def alterar_usuario():
   
 
 
-
-
-
 def apagar_usuario():
   while True:
     del_usuario = input("Qual o cpf do usuario que vc que deletar: ")
@@ -138,7 +129,7 @@ def apagar_usuario():
 
 
 def lista_usuario():
-    print(agenda1, end='')
+    print(agenda1, end=' ')
     input("\n APERTE ENTER PARA VOLTAR AO MENU DO USUARIO")
   
 ################# mudulo usuario ##############

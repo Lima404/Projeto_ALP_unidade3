@@ -1,11 +1,14 @@
 import os
 from time import sleep
 from usuario import menu1
+from dados import modulo_projeto
+# from serviços import modulo_servicos
+from estoque import modulo_estoque
 
 chip = ' '
-os.system ('cls')
+
 while chip != '0':
-  
+  os.system ('cls')
   print()
   print("#"*35)
   print (' Agenda de serviços para pet-shop')

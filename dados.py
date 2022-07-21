@@ -1,5 +1,4 @@
 import os
-import main
 ########### DADOS DO PROJETO #########
 
 def modulo_projeto():
