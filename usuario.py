@@ -54,10 +54,12 @@ def cadastrar_usuario():
 
   petdesc = input('Me fale um pouco do seu pet ')
 
+
+
   while True:
     cpf = input('Informe seu cpf: ')
     if cpf not in agenda1:
-      agenda1[cpf] = [nome, idade, pet, petdesc]
+      agenda1[cpf] = [nome, idade, pet, petdesc,]
       print('Usuário cadastrado com sucesso!')
       print(agenda1)
       savedados(agenda1)
@@ -65,6 +67,8 @@ def cadastrar_usuario():
     else:
       print("Usuario já cadastrado! ")
   input ('Tecle enter para continuar')
+
+
   
   
   

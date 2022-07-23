@@ -2,7 +2,7 @@ import os
 from time import sleep
 from usuario import menu1
 from dados import modulo_projeto
-# from serviços import modulo_servicos
+from serviços import menu_servicos
 from estoque import modulo_estoque
 
 chip = ' '
@@ -28,22 +28,18 @@ while chip != '0':
   print ('0. Sair do Menu [0]')
 
   chip = input("Por onde você quer navegar?  ")
-
-
-
   if chip == "1":
     menu1()
-    
   elif chip == "2":
     modulo_estoque()
   elif chip == "3":
-    modulo_servicos()
+    menu_servicos()
   elif chip == "4":
     modulo_projeto()
   
     
         
-  print ("programa finalizado")
+print ("programa finalizado")
 
 
 ## ଘ(੭*ˊᵕˋ)੭

@@ -1,8 +1,7 @@
 #Essa função serve para validar o CPF do cliente.
+
 def cadastrocpf(cpf):
-    # fLAVIUS, RETIRAMOS ESSA VALIDAÇÃO DA INTERNET, NÃO CONSEGUI ACHAR O LINK
-    # NÃO CONSEGUIMOS DESENVOLVER O VALIDADOR DE CPF
-    #validação do CPF do cliente
+
     cpf = [int(char) for char in cpf if char.isdigit()]
  
     if len(cpf) != 11: #faz a verificação se o CPF do cliente tem mesmo 11 dígitos
@@ -21,8 +20,8 @@ def cadastrocpf(cpf):
 
 def validemail(email): # Validação de Email
     
-    tam = len(email) #aqui ele faz a contagem da lista de email
-    lista_cara = ['@', '_', '.'] # decidimos levar em consideração apenas esses 3 caracteres de validação
+    tam = len(email) 
+    lista_cara = ['@', '_', '.'] 
     cont=0
     for i in range(0, 3):
         for j in range (0, tam -1):
@@ -35,9 +34,7 @@ def validemail(email): # Validação de Email
         
     
 def data_valida(data):
-    # FlAVIUS ESSE CÓDIGO DE VALIDAÇÃO NÃO É NOSSO!
-    # PEGAMOS NESTE LINK: https://pt.stackoverflow.com/questions/377579/validação-de-data-testes-com-python
-    # faz o split e transforma em números
+    
     dia, mes, ano = map(int, data.split('/'))
 
     # mês ou ano inválido (só considera do ano 1 em diante), retorna False
@@ -78,7 +75,7 @@ def validstring(nome): # Validação de strings
         return False
 
 
-def validnum(num): # Validação de números, para usar no programa principal
+def validnum(num): 
     numeros = '0123456789'
     num = num.upper()
     count = 0
@@ -92,6 +89,10 @@ def validnum(num): # Validação de números, para usar no programa principal
     else:
         return False
 
-           
-                
-    
+# def validar_hora(hora):
+#     while True:
+#         try:
+#             return datetime.strptime(input(hora))
+#         except ValueError:
+#             print('Digite um valor valido. Exemplo 10:30')
+            
