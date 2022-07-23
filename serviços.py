@@ -33,8 +33,6 @@ def remover_serviço():
 def alterar_data():
   print()
 
-def remover_data():
-  print()
 
 
 def menu_serviços():
@@ -67,8 +65,7 @@ def modulo_servicos():
       remover_serviço()
     elif chip == "3":
       alterar_data()
-    elif chip == "4":
-      remover_data()
+    
     
 
   
