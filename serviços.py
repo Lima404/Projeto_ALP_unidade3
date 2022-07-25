@@ -31,16 +31,16 @@ def cadastrar_servico():
   print ('~~'*30)
   input("teste")
   
-    while True:
+  while True:
       nome = input('informe seu nome para a consulta')
       if validstring(nome):
         break
       else:
         print("nome invalido! ")
     
-    data = input('Que dia você gostaria para marcar sua consulta?')
+  data = input('Que dia você gostaria para marcar sua consulta?')
 
-    while True:
+  while True:
         serv = input("O que você gostaria de marcar no nosso estabelecimento? 1 banho e tosa ou 2 consulta veterinaria?")
         if serv == "1":
           serv = "banho e tosa"
@@ -50,7 +50,7 @@ def cadastrar_servico():
         else:
           print('Numero invalido')
         
-    while True:   
+  while True:   
       hora = input ('Escolha um horário para a tosa do seu animal: Utilize as horas das 8:00 as 18:00 ')
       if hora in validnum():
         break
@@ -58,7 +58,7 @@ def cadastrar_servico():
         print('numero invalido')
       
   
-    while True:
+  while True:
       cpf = input('Informe seu cpf: ')
       
       if cpf not in agendaserv:
@@ -69,7 +69,7 @@ def cadastrar_servico():
         break
       else:
         print("Usuario já cadastrado! ")
-    input ('Tecle enter para continuar')
+  input ('Tecle enter para continuar')
         
     
 
