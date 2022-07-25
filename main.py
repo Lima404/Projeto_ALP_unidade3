@@ -25,7 +25,7 @@ while chip != '0':
   print ('2. ESTOQUE DE PRODUTOS [2]')
   print ('3. SERVIÇOS [3]')
   print ('4. DADOS SOBRE O PROJETO [4]')
-  print ('0. Sair do Menu [0]')
+  print ('0. SAIR DO MENU [0]')
 
   chip = input("Por onde você quer navegar?  ")
   if chip == "1":

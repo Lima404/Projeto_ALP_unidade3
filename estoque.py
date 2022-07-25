@@ -57,26 +57,19 @@ def alterar_estoque():
     subs = input("Você deseja acrescentar ou retirar este produto do estoque?\n [1] para acrescentar e [2] para retirar\n")
     if chave in agendaesto:
         cont = agendaesto[chave][1]
-        while True:
-            numero = input('Quanto você gostaria de alterar desse item no estoque: ')
-            if validnum(numero):
-                break
-            else:
-                print('Numero inválido')
-
-        num = int(numero)
+        numero = int(input('Quanto você gostaria de alterar desse item no estoque: '))    
             
         while True:    
             if subs == '1':
-                cont = agendaesto[chave][1] + num
-                agendaesto[chave][1] = cont
+                soma =  cont + numero
+                agendaesto[chave][1] = soma
                 print(agendaesto[chave][1])
                 savedados(agendaesto)
                 break
             
             if subs == '2':
-                cont = agendaesto[chave][1] - num
-                agendaesto[chave][1] = cont
+                sub = cont - numero
+                agendaesto[chave][1] = sub
                 print(agendaesto[chave][1])
                 savedados(agendaesto)
                 break
@@ -99,7 +92,7 @@ def remover_estoque():
 
 
 def menu_estoque():
-  os.system ('clear')
+  os.system ('cls')
   print()
   print("#"*35)
   print('        MENU DE ESTOQUE')

@@ -39,7 +39,7 @@ def cadastrar_usuario():
         print("nome invalido! ")
 
   while True:
-    idade = input('Informe seu idade: ')
+    idade = input('Informe sua idade: ')
     if validnum(idade):
       break
     else:
@@ -52,14 +52,35 @@ def cadastrar_usuario():
       else:
         print("nome invalido! ")
 
-  petdesc = input('Me fale um pouco do seu pet ')
+  while True:
+      nome_pet = input('Informe o nome do seu pet ')
+      if validstring(nome_pet):
+        break
+      else:
+        print("Nome invalido! ")
+  
+  while True:
+      raça = input('Informe o raça do seu pet ')
+      if validstring(raça):
+        break
+      else:
+        print("Raça invalido! ")
+      
+  while True:
+    idade_pet = input('Informe a idade do seu pet: ')
+    if validnum(idade_pet):
+      break
+    else:
+      print("Idade invalida! ")
+
+  petdesc = input('Me fale um pouco do seu pet: ')
 
 
 
   while True:
     cpf = input('Informe seu cpf: ')
     if cpf not in agenda1:
-      agenda1[cpf] = [nome, idade, pet, petdesc,]
+      agenda1[cpf] = [nome, idade, pet, nome_pet, raça, idade_pet, petdesc,]
       print('Usuário cadastrado com sucesso!')
       print(agenda1)
       savedados(agenda1)
@@ -67,11 +88,6 @@ def cadastrar_usuario():
     else:
       print("Usuario já cadastrado! ")
   input ('Tecle enter para continuar')
-
-
-  
-  
-  
 
 
 def procurar_usuario():
@@ -84,9 +100,6 @@ def procurar_usuario():
       print (agenda1[cpf])
       break
   input("tecle enter para continuar")
-
-
-
 
 
 def alterar_usuario():
@@ -116,7 +129,6 @@ def alterar_usuario():
   input("\n APERTE ENTER PARA VOLTAR AO MENU DO USUARIO")
   
 
-
 def apagar_usuario():
   while True:
     del_usuario = input("Qual o cpf do usuario que vc que deletar: ")
@@ -128,8 +140,6 @@ def apagar_usuario():
     else:
       print("Usuario não encontrado: ")
   input("\n APERTE ENTER PARA VOLTAR AO MENU DO USUARIO")
-
-
 
 
 def lista_usuario():
@@ -147,11 +157,11 @@ def menu1():
       print('#'*35)
       print()
       print("\tO QUE VOCÊ DESEJA? \n ")
-      print("1. Cadastrar usuario ")
-      print("2. Procurar usuario ")
-      print("3. Alterar dados de usuario")
-      print("4. Apagar Usuario")
-      print("5. Lista de usuarios")
+      print("1. CADASTRAR USUÁRIO ")
+      print("2. PROCURAR USUÁRIO ")
+      print("3. ALTERAR DADOS DO USUÁRIO")
+      print("4. APAGAR USUÁRIO")
+      print("5. LISTA DE USUÁRIO")
       print("0. Voltar") 
       usuario = input("escolha uma opção: ")
       if usuario == "1":
